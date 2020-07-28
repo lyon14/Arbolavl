@@ -84,4 +84,72 @@ class ArbolAVL {
         }
     }
     
+    private int buscaMayorMenores(NodoAVL raiz){
+        while(raiz.hDer!=null){
+            raiz=raiz.hDer;
+        }
+        return raiz.dato;
+    }
+    
+    public void eliminar(int d){
+        NodoAVL actual = new NodoAVL(d);
+        if(raiz==null){
+            System.out.println("El elemento no se encuentra");
+        }else{
+            if(actual.dato==raiz.dato){
+                if(raiz.esHoja()){
+                    raiz=null;
+                }else{
+                    if(raiz.hIzq==null&&raiz.hDer!=null){
+                        raiz=raiz.hDer;
+                    }else{
+                        if(raiz.hIzq!=null&&raiz.hDer==null){
+                            raiz=raiz.hIzq;
+                        }else{
+                            raiz.dato=buscaMayorMenores(raiz.hIzq);
+                            raiz.hIzq=eliminar(raiz.dato,raiz.hIzq);
+                        }
+                    }
+                }
+            }else{
+                if(actual.dato<raiz.dato){
+                    raiz.hIzq =eliminar(actual.dato,raiz.hIzq);
+                }else{
+                    raiz.hDer =eliminar(actual.dato,raiz.hDer);
+                }
+            }
+        }
+    }
+    
+   private NodoAVL eliminar(int d, NodoAVL raiz){
+        NodoAVL actual = new NodoAVL(d);
+        if(raiz==null){
+            System.out.println("El elemento no se encuentra");
+        }else{
+            if(actual.dato==raiz.dato){
+                if(raiz.esHoja()){
+                    raiz=null;
+                }else{
+                    if(raiz.hIzq==null&&raiz.hDer!=null){
+                        raiz=raiz.hDer;
+                    }else{
+                        if(raiz.hIzq!=null&&raiz.hDer==null){
+                            raiz=raiz.hIzq;
+                        }else{
+                            raiz.dato=buscaMayorMenores(raiz.hIzq);
+                            raiz.hIzq=eliminar(raiz.dato,raiz.hIzq);
+                        }
+                    }
+                }
+            }else{
+                if(actual.dato<raiz.dato){
+                    raiz.hIzq =eliminar(actual.dato,raiz.hIzq);
+                }else{
+                    raiz.hDer =eliminar(actual.dato,raiz.hDer);
+                }
+            }
+        }
+        return raiz;
+    }
+    
 }

@@ -18,6 +18,12 @@ class AppAVL {
                 dato=scan.nextInt();
                 a.insertar(dato);
             }
+            if(op==2){
+                int elim;
+                System.out.println("Ingrese Dato a eliminar: ");
+                elim=scan.nextInt();
+                a.eliminar(elim);
+            }
             if(op==4){
                 a.inorden();
             }
