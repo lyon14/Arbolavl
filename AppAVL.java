@@ -24,6 +24,12 @@ class AppAVL {
                 elim=scan.nextInt();
                 a.eliminar(elim);
             }
+            if(op==3){
+                int modi;
+                System.out.println("Ingrese Dato a modificar: ");
+                modi=scan.nextInt();
+                a.modificar(modi);
+            }
             if(op==4){
                 a.inorden();
             }
