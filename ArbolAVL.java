@@ -49,9 +49,59 @@ class ArbolAVL {
         return temporal;
     }
     
+    public NodoAVL insertarAVL(NodoAVL nuevo, NodoAVL subAr){
+        NodoAVL nuevoPadre=subAr;
+        if(nuevo.dato<subAr.dato){
+            if(subAr.hIzq==null){
+                subAr.hIzq=nuevo;
+            }else{
+                subAr.hIzq=insertarAVL(nuevo, subAr.hIzq);
+                if((obtenerFE(subAr.hIzq)-obtenerFE(subAr.hDer)==2)){
+                    if(nuevo.dato<subAr.hIzq.dato){
+                        nuevoPadre=rotacionIzquierda(subAr);
+                    }else{
+                        nuevoPadre=rotacionDobleIzquierda(subAr);
+                    }
+                }
+            }
+        }else if(nuevo.dato>subAr.dato){
+            if(subAr.hDer==null){
+                subAr.hDer=nuevo;
+            }else{
+                subAr.hDer=insertarAVL(nuevo, subAr.hDer);
+                if((obtenerFE(subAr.hDer)-obtenerFE(subAr.hIzq)==2)){
+                    if(nuevo.dato>subAr.hDer.dato){
+                        nuevoPadre=rotacionDerecha(subAr);
+                    }else{
+                        nuevoPadre=rotacionDobleDerecha(subAr);
+                    }
+                }
+            }
+        }else{
+            System.out.println("Nodo Duplicado ");
+        }
+        
+        if((subAr.hIzq==null)&&(subAr.hDer!=null)){
+            subAr.fe=subAr.hDer.fe+1;
+        }else if((subAr.hDer==null)&&(subAr.hIzq!=null)){
+            subAr.fe=subAr.hIzq.fe+1;
+        }else{
+            subAr.fe=Math.max(obtenerFE(subAr.hIzq), obtenerFE(subAr.hDer))+1;
+        }
+        return nuevoPadre;
+    }
     
-    
+    //insertar normal
     public void insertar(int d){
+        NodoAVL nuevo= new NodoAVL(d);
+        if(raiz==null){
+            raiz=nuevo;
+        }else{
+            raiz=insertarAVL(nuevo,raiz);
+        }
+    }
+    
+    /*public void insertar(int d){
         NodoAVL nuevo = new NodoAVL(d);
         if(raiz==null){
             raiz=nuevo;
@@ -76,7 +126,7 @@ class ArbolAVL {
             }
         }
         return raiz;
-    }
+    }*/
     
     public void preorden(){
         if(raiz!=null){
