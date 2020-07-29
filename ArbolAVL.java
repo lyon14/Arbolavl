@@ -1,4 +1,4 @@
-
+import java.util.Scanner;
 class ArbolAVL {
     NodoAVL raiz;
     
@@ -246,5 +246,47 @@ class ArbolAVL {
         }
         return raiz;
     }
+   
+   public boolean modificar(int d){
+       NodoAVL actual = new NodoAVL(d);
+       if(raiz==null){
+           System.out.println("El elemento no se encuentra");
+           return false;
+       }else{
+           if(actual.dato==raiz.dato){
+               System.out.println("El elemento se encuentra");
+               return true;
+           }else{
+               if(actual.dato<raiz.dato){
+                   return modificar(actual.dato,raiz.hIzq);
+               }else{
+                   return modificar(actual.dato,raiz.hDer);
+               }
+           }
+       }
+   }
+   
+   private boolean modificar(int d, NodoAVL raiz){
+       Scanner scan = new Scanner(System.in);
+       NodoAVL actual = new NodoAVL(d);
+       if(raiz==null){
+           System.out.println("El elemento no se encuentra");
+           return false;
+       }else{
+           if(actual.dato==raiz.dato){
+               System.out.println("El elemento se encuentra");
+               System.out.println("Ingrese un nuevo valor para el nodo:");
+               int modifi=scan.nextInt();
+               raiz.dato=modifi;
+               return true;
+           }else{
+               if(actual.dato<raiz.dato){
+                   return modificar(actual.dato,raiz.hIzq);
+               }else{
+                   return modificar(actual.dato,raiz.hDer);
+               }
+           }
+       }
+   }
     
 }
