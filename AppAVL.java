@@ -4,7 +4,7 @@ class AppAVL {
     public void menu(){
         Scanner scan = new Scanner(System.in);
         ArbolAVL a = new ArbolAVL();
-        int op=0;
+        int op;
         int salir=0;
         System.out.println("Bienvenido al menu");
         System.out.println("--------------------");
