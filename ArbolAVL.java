@@ -5,6 +5,51 @@ class ArbolAVL {
     ArbolAVL(){
         raiz=null;
     }
+    //obtener factor de equilibrio
+    public int obtenerFE(NodoAVL x){
+        if(x==null){
+            return -1;
+        }else{
+            return x.fe;
+        }
+    }
+    //rotacion simple a la izquierda
+    public NodoAVL rotacionIzquierda(NodoAVL c){
+        NodoAVL auxiliar=c.hIzq;
+        c.hIzq=auxiliar.hDer;
+        auxiliar.hIzq=c;
+        c.fe=Math.max(obtenerFE(c.hIzq), obtenerFE(c.hDer))+1;//obtiene el maximo
+        auxiliar.fe=Math.max(obtenerFE(auxiliar.hIzq), obtenerFE(auxiliar.hDer))+1;
+        return auxiliar;
+    }
+    
+    //rotacion simple derecha
+    public NodoAVL rotacionDerecha(NodoAVL c){
+        NodoAVL auxiliar=c.hDer;
+        c.hDer=auxiliar.hIzq;
+        auxiliar.hIzq=c;
+        c.fe=Math.max(obtenerFE(c.hIzq), obtenerFE(c.hDer))+1;//obtiene el maximo
+        auxiliar.fe=Math.max(obtenerFE(auxiliar.hIzq), obtenerFE(auxiliar.hDer))+1;
+        return auxiliar;
+    }
+    
+    //rotacion doble a la der
+    public NodoAVL rotacionDobleIzquierda(NodoAVL c){
+        NodoAVL temporal;
+        c.hIzq=rotacionDerecha(c.hIzq);
+        temporal=rotacionIzquierda(c);
+        return temporal;
+    }
+    
+    //rotacion doble a la izq
+    public NodoAVL rotacionDobleDerecha(NodoAVL c){
+        NodoAVL temporal;
+        c.hDer=rotacionIzquierda(c.hDer);
+        temporal=rotacionDerecha(c);
+        return temporal;
+    }
+    
+    
     
     public void insertar(int d){
         NodoAVL nuevo = new NodoAVL(d);
