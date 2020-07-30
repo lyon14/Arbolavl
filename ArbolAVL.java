@@ -261,6 +261,7 @@ class ArbolAVL {
     }
    
    public boolean modificar(int d){
+       Scanner scan = new Scanner(System.in);
        NodoAVL actual = new NodoAVL(d);
        if(raiz==null){
            System.out.println("El elemento no se encuentra");
@@ -268,6 +269,24 @@ class ArbolAVL {
        }else{
            if(actual.dato==raiz.dato){
                System.out.println("El elemento se encuentra");
+               System.out.println("Que Modicara 1.-tamaño 2.-color 3.-material");
+               int op=scan.nextInt();
+               if(op==1){
+                   System.out.println("Ingrese un nuevo tamaño para el nodo:");
+                   int tamaño=scan.nextInt();
+                   raiz.dato=tamaño;
+               }
+               if(op==2){
+                   System.out.println("Ingrese un nuevo color para el nodo:");
+                   String color=scan.next();
+                   raiz.color=color;
+               }
+               if(op==3){
+                   System.out.println("Ingrese un nuevo material para el nodo:");
+                   String material=scan.next();
+                   raiz.color=material;
+               }
+               
                return true;
            }else{
                if(actual.dato<raiz.dato){
@@ -288,9 +307,24 @@ class ArbolAVL {
        }else{
            if(actual.dato==raiz.dato){
                System.out.println("El elemento se encuentra");
-               System.out.println("Ingrese un nuevo valor para el nodo:");
-               int modifi=scan.nextInt();
-               raiz.dato=modifi;
+               System.out.println("Que Modicara 1.-tamaño 2.-color 3.-material");
+               int op=scan.nextInt();
+               if(op==1){
+                   System.out.println("Ingrese un nuevo tamaño para el nodo:");
+                   int tamaño=scan.nextInt();
+                   raiz.dato=tamaño;
+               }
+               if(op==2){
+                   System.out.println("Ingrese un nuevo color para el nodo:");
+                   String color=scan.next();
+                   raiz.color=color;
+               }
+               if(op==3){
+                   System.out.println("Ingrese un nuevo material para el nodo:");
+                   String material=scan.next();
+                   raiz.color=material;
+               }
+               
                return true;
            }else{
                if(actual.dato<raiz.dato){
