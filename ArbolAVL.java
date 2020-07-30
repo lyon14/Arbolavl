@@ -131,9 +131,9 @@ class ArbolAVL {
     
     public void preorden(){
         if(raiz!=null){
-            System.out.print(raiz.dato+"-");
-            System.out.print(raiz.color + "-");
-            System.out.print(raiz.material + "-");
+            System.out.print("Tamaño:"+raiz.dato);
+            System.out.print(" color:"+raiz.color);
+            System.out.print(" material:"+raiz.material+" / ");
             preorden(raiz.hIzq);
             preorden(raiz.hDer);
         }
@@ -142,9 +142,9 @@ class ArbolAVL {
     
     private void preorden(NodoAVL raiz){
         if(raiz!=null){
-            System.out.print(raiz.dato+"-");
-            System.out.print(raiz.color + "-");
-            System.out.print(raiz.material + "-");
+            System.out.print("Tamaño:"+raiz.dato);
+            System.out.print(" color:"+raiz.color);
+            System.out.print(" material:"+raiz.material+" / ");
             preorden(raiz.hIzq);
             preorden(raiz.hDer);
         }
@@ -153,9 +153,9 @@ class ArbolAVL {
     public void inorden(){
         if(raiz!=null){
             preorden(raiz.hIzq);
-            System.out.print(raiz.dato+"-");
-            System.out.print(raiz.color + "-");
-            System.out.print(raiz.material + "-");
+            System.out.print("Tamaño:"+raiz.dato);
+            System.out.print(" color:"+raiz.color);
+            System.out.print(" material:"+raiz.material+" / ");
             preorden(raiz.hDer);
         }
         System.out.println("");
@@ -164,9 +164,9 @@ class ArbolAVL {
     private void inorden(NodoAVL raiz){
         if(raiz!=null){
             preorden(raiz.hIzq);
-            System.out.print(raiz.dato+"-");
-            System.out.print(raiz.color + "-");
-            System.out.print(raiz.material + "-");
+            System.out.print("Tamaño:"+raiz.dato);
+            System.out.print(" color:"+raiz.color);
+            System.out.print(" material:"+raiz.material+" / ");
             preorden(raiz.hDer);
         }
     }
@@ -175,9 +175,9 @@ class ArbolAVL {
         if(raiz!=null){
             preorden(raiz.hIzq);
             preorden(raiz.hDer);
-            System.out.print(raiz.dato+"-");
-            System.out.print(raiz.color + "-");
-            System.out.print(raiz.material + "-");
+            System.out.print("Tamaño:"+raiz.dato);
+            System.out.print(" color:"+raiz.color);
+            System.out.print(" material:"+raiz.material+" / ");
         }
         System.out.println("");
     }
@@ -186,9 +186,9 @@ class ArbolAVL {
         if(raiz!=null){
             preorden(raiz.hIzq);
             preorden(raiz.hDer);
-            System.out.print(raiz.dato+"-");
-            System.out.print(raiz.color + "-");
-            System.out.print(raiz.material + "-");
+            System.out.print("Tamaño:"+raiz.dato);
+            System.out.print(" color:"+raiz.color);
+            System.out.print(" material:"+raiz.material+" / ");
         }
     }
     
@@ -284,9 +284,8 @@ class ArbolAVL {
                if(op==3){
                    System.out.println("Ingrese un nuevo material para el nodo:");
                    String material=scan.next();
-                   raiz.color=material;
-               }
-               
+                   raiz.material=material;
+               }               
                return true;
            }else{
                if(actual.dato<raiz.dato){
@@ -322,9 +321,8 @@ class ArbolAVL {
                if(op==3){
                    System.out.println("Ingrese un nuevo material para el nodo:");
                    String material=scan.next();
-                   raiz.color=material;
-               }
-               
+                   raiz.material=material;
+               }               
                return true;
            }else{
                if(actual.dato<raiz.dato){

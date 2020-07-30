@@ -8,6 +8,7 @@ class AppAVL {
         int salir=0;
         System.out.println("Bienvenido al menu");
         System.out.println("--------------------");
+        System.out.println("|Venta de fruteros| eliga su opcion: ");
                 
         while(salir<1){
             System.out.println("1.-Insertar 2.-Eliminar 3.-Modificar 4.-in_orden 5.-pre_orden 6.-post_orden 7.-Salir");
@@ -15,23 +16,23 @@ class AppAVL {
             if(op==1){
                 int dato;
                 String color, material;
-                System.out.println("Ingrese Tamaño: ");
+                System.out.println("Ingrese Tamaño del frutero(no se repiten tamaños): ");
                 dato=scan.nextInt();
-                System.out.println("Ingrese color: ");
+                System.out.println("Ingrese color del frutero: ");
                 color=scan.next();
-                System.out.println("Ingrese material: ");
+                System.out.println("Ingrese material del frutero: ");
                 material=scan.next();
                 a.insertar(dato,color,material);
             }
             if(op==2){
                 int elim;
-                System.out.println("Ingrese Dato a eliminar: ");
+                System.out.println("Ingrese tamaño(dato) que desea eliminar: ");
                 elim=scan.nextInt();
                 a.eliminar(elim);
             }
             if(op==3){
                 int modi;
-                System.out.println("Ingrese Dato a modificar: ");
+                System.out.println("Ingrese tamaño(dato) para modificar: ");
                 modi=scan.nextInt();
                 a.modificar(modi);
             }
