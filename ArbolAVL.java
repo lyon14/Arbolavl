@@ -92,8 +92,9 @@ class ArbolAVL {
     }
     
     //insertar normal
-    public void insertar(int d){
-        NodoAVL nuevo= new NodoAVL(d);
+    public void insertar(int d, String color){
+        NodoAVL nuevo;
+        nuevo = new NodoAVL(d,color);
         if(raiz==null){
             raiz=nuevo;
         }else{
@@ -130,7 +131,7 @@ class ArbolAVL {
     
     public void preorden(){
         if(raiz!=null){
-            System.out.print(raiz.dato + "-");
+            System.out.print(raiz.dato+" "+raiz.color + "-");
             preorden(raiz.hIzq);
             preorden(raiz.hDer);
         }
@@ -139,7 +140,7 @@ class ArbolAVL {
     
     private void preorden(NodoAVL raiz){
         if(raiz!=null){
-            System.out.print(raiz.dato + "-");
+            System.out.print(raiz.dato+" "+raiz.color + "-");
             preorden(raiz.hIzq);
             preorden(raiz.hDer);
         }
@@ -148,7 +149,7 @@ class ArbolAVL {
     public void inorden(){
         if(raiz!=null){
             preorden(raiz.hIzq);
-            System.out.print(raiz.dato + "-");
+            System.out.print(raiz.dato+" "+raiz.color + "-");
             preorden(raiz.hDer);
         }
         System.out.println("");
@@ -157,7 +158,7 @@ class ArbolAVL {
     private void inorden(NodoAVL raiz){
         if(raiz!=null){
             preorden(raiz.hIzq);
-            System.out.print(raiz.dato + "-");
+            System.out.print(raiz.dato+" "+raiz.color + "-");
             preorden(raiz.hDer);
         }
     }
@@ -166,7 +167,7 @@ class ArbolAVL {
         if(raiz!=null){
             preorden(raiz.hIzq);
             preorden(raiz.hDer);
-            System.out.print(raiz.dato + "-");
+            System.out.print(raiz.dato+" "+raiz.color + "-");
         }
         System.out.println("");
     }
@@ -175,7 +176,7 @@ class ArbolAVL {
         if(raiz!=null){
             preorden(raiz.hIzq);
             preorden(raiz.hDer);
-            System.out.print(raiz.dato + "-");
+            System.out.print(raiz.dato+" "+raiz.color + "-");
         }
     }
     

@@ -14,9 +14,12 @@ class AppAVL {
             op=scan.nextInt();
             if(op==1){
                 int dato;
-                System.out.println("Ingrese Dato: ");
+                String color;
+                System.out.println("Ingrese Tamaño: ");
                 dato=scan.nextInt();
-                a.insertar(dato);
+                System.out.println("Ingrese color: ");
+                color=scan.next();
+                a.insertar(dato,color);
             }
             if(op==2){
                 int elim;
