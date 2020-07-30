@@ -1,7 +1,7 @@
 
 public class NodoAVL {
     int dato, fe;
-    String color;
+    String color,material;
     NodoAVL hIzq;
     NodoAVL hDer;
     
@@ -16,9 +16,10 @@ public class NodoAVL {
         this.hDer=null;
     }
 
-    NodoAVL(int dato, String color) {
+    NodoAVL(int dato, String color,String material) {
         this.dato = dato;
         this.color = color;
+        this.material = material;
         
     }
     public boolean esHoja(){
